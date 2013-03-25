@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+        <link rel="stylesheet" href="my.css" /> 
+        <script type="text/javascript" charset="utf-8" src="cordova-1.8.0.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js">
+        </script>
+        <script src="songscript.js">
+        </script>
+        <script src="betterauto.js">
+        </script>
+        <link rel="stylesheet" href="autoc.css" />
+        <style>
+        input {
+            width: 90%;
+        }
+        </style>
+    </head>
+    <body onload="initit()">
+        <div id="one" data-role="page">
+                     <div data-theme="a" data-role="header">
+                <a data-role="button" class="ui-btn-left" onclick="exitapp()">
+                    Exit
+                </a>
+                <h4>
+                    Filmy Funda
+                </h4>
+            </div>
+                 <div style="width: 288px; height: 100px; position: relative;  margin:0 auto;">
+                    <img src="logo.png" alt="image" style="position: absolute; top: 50%; left: 42%; margin-left: -16px; margin-top: -18px" />
+                </div>
+                </br></br>
+            
+            <div data-role="content">
+                <a data-role="button" data-transition="none" data-theme="b" href="#play">
+                    PLAY
+                </a>
+                <a data-role="button" data-theme="b" href="#hsore" onclick="hscore()">
+                    SCORES
+                </a>
+                <a data-role="button" data-theme="b" href="#instr">
+                    INSTRUCTIONS
+                </a>
+                <a data-role="button" data-theme="e" href="#leisure" onclick="playsong()">
+                    LEISURE MODE
+                </a>
+                <a data-role="button" data-theme="a" href="#credits">
+                    CREDITS
+                </a>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <h1>
+                    copyright 2012 FilmyFunda
+                </h1>
+            </div>
+ </div>
+ <div id="play" data-role="page">
+
+  <div data-theme="a" data-role="header">
+                <a data-role="button" href="#one" class="ui-btn-left">
+                    Back
+                </a>
+                <h3>
+                    Filmy Funda
+                </h3>
+            </div>
+                 <div style="width: 288px; height: 100px; position: relative;  margin:0 auto;">
+                    <img src="logo.png" alt="image" style="position: absolute; top: 50%; left: 42%; margin-left: -16px; margin-top: -18px" />
+                </div>
+            </br></br>
+            
+            <div data-role="content">
+                <a data-role="button" data-theme="b" href="#playsong" onclick="playsong()" >
+                    Easy
+                </a>
+                <a data-role="button" data-theme="b" href="#playsong" onclick="playsong()" class='ui-disabled' id='medium'>
+                    Medium
+                </a>
+                <a data-role="button" data-theme="b" href="#playsong" onclick="playsong()" class='ui-disabled' id='hard'>
+                    Hard
+                </a>
+            </div>
+
+ </div>
+ <div id="playsong" data-role="page">
+
+    <div id="con">
+    <label for="movie">Enter movie name</label><br />
+    <input type="search" id="movie" name="movie" />
+<a href="#result" data-role="button" onclick="check()">Submit</a>
+<div>Your Lifelines</div>
+    <a data-role="button" data-inline="true" data-theme="b" onclick="disablehint()" id="hint">Hint</a>
+    <a data-role="button" data-inline="true" data-theme="b" onclick="disableflip()" id="flip">Flip</a>
+    <p><span id="hintd"></span>
+    </div>
+                <div id="popupmes">
+    <p id="mes"><b>Yeah! You have now unlocked the Medium level!</b></p>
+        <a data-role="button" data-inline="true" data-theme="b" href="#play">Change level</a>
+        <a data-role="button" data-inline="true" data-theme="b" onclick="showcon()" href="javascript:void(0);">Continue Playing</a>
+</div>
+
+ </div>
+ <div id="result" data-role="dialog">
+<div data-role="content" data-theme="c">
+    <center><div id="ans"></div>
+        <p>Movie: <i><span id="mname"></span></i></p>
+        <p>Song: <i><span id="sname"></span></i></p>
+    <p>Your score is:<e><span id="score"></span></e></p></center>
+    <a data-role="button" href="#playsong" data-theme="b" onclick="playsong()">Play Next Song</a>
+    <a data-role="button" href="#quitb" data-theme="b">Quit</a>
+</div>
+ </div>
+  <div id="quitb" data-role="page">
+<div data-role="content" data-theme="c">
+    <center>
+
+        <p>Final Score: <i><span id="fscore"></span></i></p>
+        <p>Enter Name: <input type="text" id="namer" name="namer" /></p>
+  </center>
+    <a data-role="button" href="#one" data-theme="b" onclick="onquit()">Submit</a>
+</div>
+ </div>
+   <div id="hsore" data-role="page">
+<div data-role="content" data-theme="c">
+    <center>
+
+        <div id="lscore"></div>
+
+  </center>
+    <a data-role="button" href="#one" data-theme="b" onclick="onquit()">Back</a>
+</div>
+ </div>
+
+    <div id="leisure" data-role="page">
+                             <div data-theme="a" data-role="header">
+                <a data-role="button" href="#one" class="ui-btn-left">
+                    Back
+                </a>
+                <h4>
+                    Filmy Funda
+                </h4>
+            </div>
+<div data-role="content" data-theme="c">
+    <center>
+    <a data-role="button" data-icon="delete" id="play" onclick="play()">Play</a>
+<a data-role="button" data-icon="delete" id="pause" onclick="pause()">Pause</a>
+<a data-role="button" data-icon="delete" id="stop" onclick="stopper()">Stop</a>
+<a data-role="button" data-icon="delete" id="stop" onclick="playsong()">Next</a>
+    <a data-role="button" href="#one" data-theme="b">Back</a>
+</div>
+ </div>
+
+ <div data-role="page" id="instr">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#one" class="ui-btn-left">
+                    Back
+                </a>
+                <h3>
+                    Filmy Funda
+                </h3>
+            </div>
+                <div style="width: 288px; height: 100px; position: relative;  margin:0 auto;">
+                    <img src="logo.png" alt="image" style="position: absolute; top: 50%; left: 42%; margin-left: -16px; margin-top: -18px" />
+                </div>
+            
+            <div data-role="content">
+                <h2>
+                    <center>Instructions</center>
+                </h2>
+                <p align="center">This app tests your passion for Bollywood! To find out where you stand among millions of other fanatics go ahead and take this challenge.<br>
+Click the <b>PLAY</b> button. Choose your level. Guess the movie of the song playing in the background and type it in the space provided. Improve your score with each right guess. <br>As you get better, new levels unlock.. <br>
+Sit with a bunch of friends and enjoy.<br><br>
+Not in the mood for straining your brains?<br>
+Then just sit back and listen to songs by clicking on the '<b>Leisure Mode</b>'!
+</p>
+            </div>
+        </div>
+   <div data-role="page" id="credits">
+            <div data-theme="a" data-role="header">
+                <a data-role="button" href="#one" class="ui-btn-left">
+                    Back
+                </a>
+                <h3>
+                    Filmy Funda
+                </h3>
+            </div>
+                 <div style="width: 288px; height: 100px; position: relative;  margin:0 auto;">
+                    <img src="logo.png" alt="image" style="position: absolute; top: 50%; left: 42%; margin-left: -16px; margin-top: -18px" />
+                </div>
+            <div data-role="content">
+                <center>
+                <h2>
+                    CREDITS
+                </h2>
+                <p>Team Filmy Funda</p>
+                   <p> Mohak Dubey</p>
+                    <p>Prashant Baid</p>
+                    <p>Sahil Agarwal</p>
+                   <p>Srishti Parakh</p>
+                    <p>Vishvam Raval</p>
+            </div>
+            
+            
+        </div>
+
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>

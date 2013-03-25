@@ -1,0 +1,26 @@
+<html>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+function update() {
+var abc=$("#hello").val();
+var a2=$("#hello2").val();
+var a3=$("#hello3").val();
+var a4=$("#hello4").val();
+var a5=$("#hello5").val();
+console.log(abc);
+//$("p").append("'Hello''"+abc+"''World'");
+$("p").append(' "INSERT INTO songlist(songname,songurl,moviename,hint,optionid) VALUES('+"'"+abc+"',"+"'"+a2+"',"+"'"+a3+"',"+"'"+a4+"',"+"'"+a5+"'"+"),");
+}
+</script>
+
+<body>
+
+ Sname<input type="text" name="abc1" id="hello"/></br>
+ Surl<input type="text" name="abc2" id="hello2"/></br>
+ Mname<input type="text" name="a3" id="hello3"/></br>
+ H<input type="text" name="a4" id="hello4"/></br>
+ O<input type="text" name="a5" id="hello5"/></br>
+<a onclick="update()" href="#">Update</a>
+<p> var sqlquery = new Array(</p>
+</body>
+</html>
